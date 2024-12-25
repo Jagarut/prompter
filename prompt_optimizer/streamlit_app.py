@@ -1,8 +1,5 @@
 import streamlit as st
-if __name__ == '__main__':
-    from prompt_optimizer.prompt_optimizer import PromptOptimizer
-else:
-    from .prompt_optimizer import PromptOptimizer
+from prompt_optimizer import PromptOptimizer
 
 def main():
     st.title("Groq Prompt Optimizer")
