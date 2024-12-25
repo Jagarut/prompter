@@ -1,7 +1,7 @@
 from prompt_optimizer.groq_client import GroqClient
 
 class PromptOptimizer:
-    def __init__(self, groq_client=None, model="mixtral-8x7b-32768", strategy="default"):
+    def __init__(self, groq_client=None, model="llama-3.3-70b-versatile", strategy="default"):
         if groq_client is None:
             self.groq_client = GroqClient()
         else:
