@@ -1,4 +1,7 @@
-from .groq_client import GroqClient
+if __name__ == '__main__':
+    from prompt_optimizer.groq_client import GroqClient
+else:
+    from .groq_client import GroqClient
 
 class PromptOptimizer:
     def __init__(self, groq_client=None, model="llama-3.3-70b-versatile", strategy="default"):

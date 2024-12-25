@@ -1,5 +1,8 @@
 import argparse
-from .prompt_optimizer import PromptOptimizer
+if __name__ == '__main__':
+    from prompt_optimizer.prompt_optimizer import PromptOptimizer
+else:
+    from .prompt_optimizer import PromptOptimizer
 
 def main():
     parser = argparse.ArgumentParser(description="Optimize user prompts using Groq LLM.")
