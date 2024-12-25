@@ -18,9 +18,7 @@ def main():
             st.error("Please enter a prompt.")
             return
         try:
-            optimizer = PromptOptimizer(model=model)
-            if api_key:
-                optimizer.groq_client.client.api_key = api_key
+            optimizer = PromptOptimizer(model=model, groq_client=GroqClient(api_key=api_key) if api_key else None)
             optimized_prompt = optimizer.optimize_prompt(user_prompt)
             st.success("Optimized Prompt:")
             st.write(optimized_prompt)
