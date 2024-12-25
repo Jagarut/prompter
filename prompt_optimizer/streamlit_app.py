@@ -1,5 +1,5 @@
 import streamlit as st
-from prompt_optimizer.prompt_optimizer import PromptOptimizer
+from .prompt_optimizer import PromptOptimizer
 
 def main():
     st.title("Groq Prompt Optimizer")
