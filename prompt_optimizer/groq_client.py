@@ -4,15 +4,19 @@ from groq import Groq
 
 load_dotenv()
 
+DEFAULT_TEMPERATURE = float(os.getenv('GROQ_DEFAULT_TEMPERATURE'))
+DEFAULT_MAX_TOKENS = int(os.getenv('GROQ_DEFAULT_MAX_TOKENS'))
+
 class GroqClient:
     def __init__(self, api_key=None):
         if api_key is None:
             api_key = os.getenv("GROQ_API_KEY")
+            print(f"API Key: {api_key}")
         if not api_key:
             raise ValueError("No Groq API key provided or found in environment variables.")
         self.client = Groq(api_key=api_key)
 
-    def chat_completions_create(self, model, messages, temperature=1.0, top_p=1.0, max_tokens=None):
+    def chat_completions_create(self, model, messages, temperature=DEFAULT_TEMPERATURE, top_p=1.0, max_tokens=DEFAULT_MAX_TOKENS):
         """
         Send a chat completion request to the Groq API.
 
