@@ -1,5 +1,6 @@
 import streamlit as st
 from prompt_optimizer import PromptOptimizer
+from prompt_optimizer.groq_client import GroqClient
 
 def main():
     st.title("Groq Prompt Optimizer")
