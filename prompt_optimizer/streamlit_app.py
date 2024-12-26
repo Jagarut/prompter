@@ -1,4 +1,5 @@
 import os
+import pyperclip
 import streamlit as st
 from prompt_optimizer import PromptOptimizer
 from groq_client import GroqClient
@@ -48,24 +49,15 @@ def main():
             st.error("Please enter a prompt.")
             return
         try:
-            optimizer = PromptOptimizer(model=model, groq_client=GroqClient(api_key=api_key) if api_key else None)
+            optimizer = PromptOptimizer(
+            model=model, 
+            groq_client=GroqClient(api_key=api_key) if api_key else None
+        )
             optimized_prompt = optimizer.optimize_prompt(user_prompt)
             st.success("Optimized Prompt:")
-            st.write(optimized_prompt)
-            
-            copy_button = st.button("Copy to Clipboard")
-            if copy_button:
-                st.session_state.copied_text = optimized_prompt
-                st.markdown(f"""
-                    <script>
-                        navigator.clipboard.writeText('{st.session_state.copied_text}').then(function() {{
-                            
-                        }}, function(err) {{
-                            alert('Could not copy text: ', err);
-                        }});
-                    </script>
-                """, unsafe_allow_html=True)
-                st.success("Prompt copied to clipboard!")
+            st.code(optimized_prompt, language="markdown")
+        
+                
         except Exception as e:
             st.error(f"Error: {e}")
                 
