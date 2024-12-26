@@ -53,17 +53,16 @@ def main():
             st.success("Optimized Prompt:")
             st.write(optimized_prompt)
             
-            if st.button("Copy to Clipboard"):
+            copy_button = st.button("Copy to Clipboard")
+            if copy_button:
+                st.session_state.copied_text = optimized_prompt
                 st.markdown(f"""
                     <script>
-                        function copyToClipboard(text) {{
-                            navigator.clipboard.writeText(text).then(function() {{
-                                alert('Text copied to clipboard');
-                            }}, function(err) {{
-                                alert('Could not copy text: ', err);
-                            }});
-                        }}
-                        copyToClipboard('{optimized_prompt}');
+                        navigator.clipboard.writeText('{st.session_state.copied_text}').then(function() {{
+                            alert('Text copied to clipboard');
+                        }}, function(err) {{
+                            alert('Could not copy text: ', err);
+                        }});
                     </script>
                 """, unsafe_allow_html=True)
         except Exception as e:
@@ -73,4 +72,6 @@ def main():
     st.sidebar.markdown("Created by ChusDeBoss")
 
 if __name__ == "__main__":
+    if 'copied_text' not in st.session_state:
+        st.session_state.copied_text = ''
     main()
