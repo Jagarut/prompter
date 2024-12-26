@@ -2,6 +2,8 @@ import streamlit as st
 from prompt_optimizer import PromptOptimizer
 from groq_client import GroqClient
 
+st.set_page_config(layout="wide")
+
 def main():
     st.title("Groq Prompt Optimizer")
 
