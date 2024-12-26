@@ -5,7 +5,7 @@ from groq_client import GroqClient
 st.set_page_config(layout="wide")
 
 def main():
-    st.title("Groq Prompt Optimizer")
+    st.markdown("<h1 style='text-align: center;'>Groq Prompt Optimizer</h1>", unsafe_allow_html=True)
 
     col1, col2 = st.columns([1, 3])
 
