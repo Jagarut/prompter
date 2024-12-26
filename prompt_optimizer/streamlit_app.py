@@ -5,7 +5,7 @@ from groq_client import GroqClient
 def main():
     st.title("Groq Prompt Optimizer")
 
-    col1, col2 = st.columns(2)
+    col1, col2 = st.columns([1, 3])
 
     with col1:
         api_key = st.text_input("Enter your Groq API key (leave blank to use .env):", type="password")
