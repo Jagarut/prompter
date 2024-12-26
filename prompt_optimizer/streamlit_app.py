@@ -8,6 +8,9 @@ def main():
     col1, col2 = st.columns(2)
 
     with col1:
+        api_key = st.text_input("Enter your Groq API key (leave blank to use .env):", type="password")
+    
+    with col2:
         user_prompt = st.text_area("Enter your prompt:")
         model = st.selectbox("Select Model", [
             "llama-3.3-70b-versatile",
@@ -15,9 +18,6 @@ def main():
             "llama3-70b-8192",
             "llama3-8b-8192"
         ], index=0)
-    
-    with col2:
-        api_key = st.text_input("Enter your Groq API key (leave blank to use .env):", type="password")
         if st.button("Optimize"):
             if not user_prompt:
                 st.error("Please enter a prompt.")
