@@ -52,6 +52,20 @@ def main():
             optimized_prompt = optimizer.optimize_prompt(user_prompt)
             st.success("Optimized Prompt:")
             st.write(optimized_prompt)
+            
+            if st.button("Copy to Clipboard"):
+                st.markdown(f"""
+                    <script>
+                        function copyToClipboard(text) {{
+                            navigator.clipboard.writeText(text).then(function() {{
+                                alert('Text copied to clipboard');
+                            }}, function(err) {{
+                                alert('Could not copy text: ', err);
+                            }});
+                        }}
+                        copyToClipboard('{optimized_prompt}');
+                    </script>
+                """, unsafe_allow_html=True)
         except Exception as e:
             st.error(f"Error: {e}")
                 
