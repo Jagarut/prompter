@@ -10,6 +10,7 @@ def main():
         <style>
             .main {
                 padding-bottom: 50px;
+                background-color: #f0f2f6;
             }
         </style>
         """,
