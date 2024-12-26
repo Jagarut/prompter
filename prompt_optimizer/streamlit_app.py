@@ -59,12 +59,13 @@ def main():
                 st.markdown(f"""
                     <script>
                         navigator.clipboard.writeText('{st.session_state.copied_text}').then(function() {{
-                            alert('Text copied to clipboard');
+                            
                         }}, function(err) {{
                             alert('Could not copy text: ', err);
                         }});
                     </script>
                 """, unsafe_allow_html=True)
+                st.success("Prompt copied to clipboard!")
         except Exception as e:
             st.error(f"Error: {e}")
                 
