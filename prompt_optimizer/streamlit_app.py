@@ -22,11 +22,11 @@ def main():
         """
         <style>
             [data-testid="column"]:nth-child(1) {
-                background-color: #e0e0e0;
+                background-color: #e0f7fa;
                 padding: 10px;
             }
             [data-testid="column"]:nth-child(2) {
-                background-color: #f0f0f0;
+                background-color: #e0fae6;
                 padding: 10px;
             }
         </style>
