@@ -18,6 +18,22 @@ def main():
     )
     st.markdown("<h1 style='text-align: center;'>Groq Prompt Optimizer</h1>", unsafe_allow_html=True)
 
+    st.markdown(
+        """
+        <style>
+            [data-testid="column"]:nth-child(1) {
+                background-color: #e0e0e0;
+                padding: 10px;
+            }
+            [data-testid="column"]:nth-child(2) {
+                background-color: #f0f0f0;
+                padding: 10px;
+            }
+        </style>
+        """,
+        unsafe_allow_html=True,
+    )
+
     col1, col2 = st.columns([1, 3])
 
     with col1:
