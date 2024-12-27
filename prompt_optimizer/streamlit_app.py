@@ -1,5 +1,4 @@
 import os
-import pyperclip
 import streamlit as st
 from prompt_optimizer import PromptOptimizer
 from groq_client import GroqClient
@@ -34,10 +33,10 @@ def main():
     col1, col2, col3 = st.columns(3)
     with col1:
         model = st.selectbox("Select Model", [
+            "llama3-8b-8192",
             "llama-3.3-70b-versatile",
             "llama3-groq-8b-8192-tool-use-preview",
-            "llama3-70b-8192",
-            "llama3-8b-8192"
+            "llama3-70b-8192"
         ], index=0)
     with col2:
         temperature = st.slider("Temperature", 0.0, 1.0, DEFAULT_TEMPERATURE, 0.1)

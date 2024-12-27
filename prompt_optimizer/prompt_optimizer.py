@@ -1,7 +1,7 @@
 from groq_client import GroqClient
 
 class PromptOptimizer:
-    def __init__(self, groq_client=None, model="llama-3.3-70b-versatile", strategy="default"):
+    def __init__(self, groq_client=None, model="llama3-8b-8192", strategy="default"):
         if groq_client is None:
             self.groq_client = GroqClient()
         else:
@@ -40,7 +40,7 @@ class PromptOptimizer:
         else: # default strategy
             optimization_prompt = f"""
             Rephrase and optimize the following user prompt to be more effective when working with large language models.
-            Consider making it more specific, adding context, and ensuring it is clear and unambiguous.
+            Consider making it more specific, adding context, and ensuring it is clear and unambiguous. Return the optimized prompt and nothing else.
             
             User Prompt:
             {user_prompt}

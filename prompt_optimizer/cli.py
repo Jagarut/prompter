@@ -1,10 +1,16 @@
+import os
 import argparse
 from prompt_optimizer import PromptOptimizer
+from dotenv import load_dotenv
+
+load_dotenv()
+
+DEFAULT_MODEL = os.getenv('GROQ_DEFAULT_MODEL')
 
 def main():
     parser = argparse.ArgumentParser(description="Optimize user prompts using Groq LLM.")
     parser.add_argument("prompt", type=str, help="The prompt to optimize.")
-    parser.add_argument("--model", type=str, default="llama-3.3-70b-versatile", help="The Groq model to use.")
+    parser.add_argument("--model", type=str, default=DEFAULT_MODEL, help="The Groq model to use.")
 
     args = parser.parse_args()
 

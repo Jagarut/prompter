@@ -23,9 +23,9 @@ class GroqClient:
         Args:
             model (str): The name of the Groq model to use.
             messages (list): A list of message dictionaries, where each dictionary has a 'role' and 'content' key.
-            temperature (float, optional): The sampling temperature. Defaults to 1.0.
+            temperature (float, optional): The sampling temperature. Defaults to 0.5.
             top_p (float, optional): The nucleus sampling probability. Defaults to 1.0.
-            max_tokens (int, optional): The maximum number of tokens to generate. Defaults to None.
+            max_tokens (int, optional): The maximum number of tokens to generate. Defaults to 1024.
 
         Returns:
             str: The content of the generated message.
