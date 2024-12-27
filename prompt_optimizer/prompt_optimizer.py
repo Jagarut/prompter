@@ -17,7 +17,7 @@ class PromptOptimizer:
         self.model = model
         self.strategy = strategy
 
-    def optimize_prompt(self, user_prompt):
+    def optimize_prompt(self, user_prompt, temperature=None, max_tokens=None):
         """
         Optimizes a user prompt using the Groq LLM.
 
@@ -64,7 +64,9 @@ class PromptOptimizer:
         # Get the optimized prompt from the Groq API
         optimized_prompt = self.groq_client.chat_completions_create(
             model=self.model,
-            messages=messages
+            messages=messages,
+            temperature=temperature,
+            max_tokens=max_tokens
         )
         # Return the optimized prompt, removing any leading/trailing whitespace
         return optimized_prompt.strip()

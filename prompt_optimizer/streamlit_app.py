@@ -50,15 +50,14 @@ def main():
             st.error("Please enter a prompt.")
             return
         try:
+            groq_client = GroqClient(api_key=api_key) if api_key else None
             optimizer = PromptOptimizer(
-            model=model,
-            strategy=strategy,
-            groq_client=GroqClient(api_key=api_key) if api_key else None
-        )
-            optimized_prompt = optimizer.optimize_prompt(user_prompt)
+                model=model,
+                strategy=strategy,
+                groq_client=groq_client
+            )
+            optimized_prompt = optimizer.optimize_prompt(user_prompt, temperature=temperature, max_tokens=max_tokens)
             st.success("Optimized Prompt:")
-            # st.code(optimized_prompt, language="markdown")
-            # formatted_prompt = optimized_prompt.replace(". ", ".\n\n")
             with st.expander("Optimized Prompt Details"):
                 st.code(optimized_prompt, language="markdown", wrap_lines=True)
                 st.text("Additional analysis")
