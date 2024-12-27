@@ -18,14 +18,28 @@ def main():
     # Add the prompt argument
     parser.add_argument("prompt", type=str, help="The prompt to optimize.")
     # Add the model argument
-    parser.add_argument("--model", type=str, default=DEFAULT_MODEL, help="The Groq model to use.")
+    parser.add_argument(
+        "--model",
+        type=str,
+        default=DEFAULT_MODEL,
+        choices=["llama3-8b-8192", "mixtral-8x7b-32768"],
+        help="The Groq model to use."
+    )
+    # Add the strategy argument
+    parser.add_argument(
+        "--strategy",
+        type=str,
+        default="default",
+        choices=["default", "concise", "detailed"],
+        help="The optimization strategy to use ('default', 'concise', or 'detailed')."
+    )
 
     # Parse the arguments
     args = parser.parse_args()
 
     try:
-        # Initialize the PromptOptimizer with the specified model
-        optimizer = PromptOptimizer(model=args.model)
+        # Initialize the PromptOptimizer with the specified model and strategy
+        optimizer = PromptOptimizer(model=args.model, strategy=args.strategy)
         # Optimize the prompt
         optimized_prompt = optimizer.optimize_prompt(args.prompt)
         # Print the optimized prompt
