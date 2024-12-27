@@ -28,6 +28,8 @@ def main():
     )
     st.sidebar.markdown("---")
     
+    strategy = st.sidebar.selectbox("Select Strategy", ["default", "concise", "detailed"], index=0)
+    
     user_prompt = st.text_area("Enter your prompt:")
     
     col1, col2, col3 = st.columns(3)
@@ -49,7 +51,8 @@ def main():
             return
         try:
             optimizer = PromptOptimizer(
-            model=model, 
+            model=model,
+            strategy=strategy,
             groq_client=GroqClient(api_key=api_key) if api_key else None
         )
             optimized_prompt = optimizer.optimize_prompt(user_prompt)
