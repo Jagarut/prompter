@@ -57,8 +57,13 @@ def main():
         )
             optimized_prompt = optimizer.optimize_prompt(user_prompt)
             st.success("Optimized Prompt:")
-            st.code(optimized_prompt, language="markdown")
-        
+            # st.code(optimized_prompt, language="markdown")
+            # formatted_prompt = optimized_prompt.replace(". ", ".\n\n")
+            with st.expander("Optimized Prompt Details"):
+                st.code(optimized_prompt, language="markdown", wrap_lines=True)
+                st.text("Additional analysis")
+                st.metric("Token count", len(optimized_prompt))
+
                 
         except Exception as e:
             st.error(f"Error: {e}")

@@ -31,7 +31,7 @@ class PromptOptimizer:
         if self.strategy == "concise":
             optimization_prompt = f"""
             Rephrase the following user prompt to be more concise and to the point, while retaining all the important information.
-            Respond in the same language as the user prompt.
+            It is important to respond in the same language as the user's prompt.
 
             User Prompt:
             {user_prompt}
@@ -41,7 +41,7 @@ class PromptOptimizer:
         elif self.strategy == "detailed":
             optimization_prompt = f"""
             Rephrase the following user prompt to be more detailed and explicit, adding context and ensuring it is clear and unambiguous.
-            Respond in the same language as the user prompt.
+            Respond in the same language as the user's prompt(check for spanish).
 
             User Prompt:
             {user_prompt}
@@ -52,7 +52,7 @@ class PromptOptimizer:
             optimization_prompt = f"""
             Rephrase and optimize the following user prompt to be more effective when working with large language models.
             Consider making it more specific, adding context, and ensuring it is clear and unambiguous.
-            Respond in the same language as the user prompt. Return the optimized prompt and nothing else.
+            Make sure to respond in the same language as the user's prompt(check for Spanish). Return the optimized prompt and nothing else.
 
             User Prompt:
             {user_prompt}
