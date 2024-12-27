@@ -22,7 +22,11 @@ def main():
         "--model",
         type=str,
         default=DEFAULT_MODEL,
-        choices=["llama3-8b-8192", "mixtral-8x7b-32768"],
+        choices=["llama3-8b-8192",
+            "llama-3.3-70b-versatile",
+            "llama3-groq-8b-8192-tool-use-preview",
+            "llama3-70b-8192"
+        ],
         help="The Groq model to use."
     )
     # Add the strategy argument
