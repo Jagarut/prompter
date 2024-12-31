@@ -1,3 +1,6 @@
+"""
+This module defines the PromptOptimizer class for optimizing user prompts using Groq's LLM.
+"""
 from groq_client import GroqClient
 
 class PromptOptimizer:

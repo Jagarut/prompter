@@ -1,3 +1,6 @@
+"""
+This module implements a Streamlit web application for optimizing prompts using Groq's LLM services.
+"""
 import os
 import streamlit as st
 from prompt_optimizer import PromptOptimizer
@@ -12,6 +15,9 @@ DEFAULT_MAX_TOKENS = int(os.getenv('GROQ_DEFAULT_MAX_TOKENS'))
 st.set_page_config(layout="wide")
 
 def main():
+    """
+    Main function to set up the Streamlit app and handle user interactions.
+    """
     
     st.markdown("<h1 style='text-align: center;'>Groq Prompt Optimizer</h1>", unsafe_allow_html=True)
     
@@ -62,8 +68,6 @@ def main():
                 st.code(optimized_prompt, language="markdown", wrap_lines=True)
                 st.text("Additional analysis")
                 st.metric("Token count", len(optimized_prompt))
-
-                
         except Exception as e:
             st.error(f"Error: {e}")
                 

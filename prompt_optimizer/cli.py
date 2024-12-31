@@ -1,3 +1,6 @@
+"""
+This module provides a command-line interface for optimizing user prompts using Groq's LLM.
+"""
 import os
 import argparse
 from prompt_optimizer import PromptOptimizer
@@ -54,5 +57,8 @@ def main():
         print(f"Error: {e}")
 
 if __name__ == "__main__":
+    """
+    Entry point for the CLI application.
+    """
     # Execute the main function
     main()

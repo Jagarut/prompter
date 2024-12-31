@@ -1,3 +1,6 @@
+"""
+This module defines a client for interacting with the Groq API.
+"""
 import os
 from dotenv import load_dotenv
 from groq import Groq
@@ -43,10 +46,13 @@ class GroqClient:
         Returns:
             str: The content of the generated message.
         """
-        chat_completion = self.client.chat.completions.create(
-            model=model,
-            messages=messages,
-            temperature=temperature,
-            max_tokens=max_tokens
-        )
-        return chat_completion.choices[0].message.content
+        try:
+            chat_completion = self.client.chat.completions.create(
+                model=model,
+                messages=messages,
+                temperature=temperature,
+                max_tokens=max_tokens
+            )
+            return chat_completion.choices[0].message.content
+        except Exception as e:
+            raise Exception(f"Error in chat_completions_create: {e}")
