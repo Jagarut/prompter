@@ -24,7 +24,7 @@ This Python utility uses the Groq LLM provider service to instantly refactor and
 
 1.  **Install Dependencies:**
     ```bash
-    pip install -r requirements.in
+    uv sync
     ```
 2.  **Set up your `.env` file:**
     Create a `.env` file in the root directory and add your Groq API key:
@@ -73,9 +73,8 @@ prompt_optimizer/
 ├── prompt_optimizer.py
 ├── cli.py
 ├── streamlit_app.py
-├── .env
-└── README.md
-requirements.in
+└── .env
+README.md
 ```
 
 ## Contributing
