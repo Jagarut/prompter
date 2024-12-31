@@ -1,9 +1,10 @@
 # Groq Prompt Optimizer
 
-This Python utility uses the Groq LLM provider service to instantly refactor and optimize user prompts. It is designed to improve the effectiveness of prompts when working with large language models.
+This Python utility uses the Groq LLM service to optimize user prompts for better performance with large language models. It offers both a command-line interface (CLI) and a Streamlit web application for ease of use.
 
 ## Features
 
+-   **Prompt Optimization:** Rephrases and optimizes user prompts using Groq's LLM services.
 -   **Prompt Optimization:** Rephrases and optimizes user prompts using Groq's LLM services.
 -   **Configurable:** Uses environment variables or a `.env` file for configuration.
 -   **Modular Design:** Can be used as a module in other Python scripts or run from the command line.
@@ -33,6 +34,8 @@ This Python utility uses the Groq LLM provider service to instantly refactor and
     ```
     Replace `your_groq_api_key` with your actual Groq API key.
 
+    You can also set the `GROQ_DEFAULT_MODEL`, `GROQ_DEFAULT_TEMPERATURE`, and `GROQ_DEFAULT_MAX_TOKENS` environment variables in the `.env` file to customize the default behavior of the application.
+
 ## Usage
 
 ### Command-Line Interface
@@ -40,10 +43,10 @@ This Python utility uses the Groq LLM provider service to instantly refactor and
 To use the command-line interface, run:
 
 ```bash
-python prompt_optimizer/cli.py "Your prompt here" --model mixtral-8x7b-32768
+python prompt_optimizer/cli.py "Your prompt here" --model llama3-8b-8192 --strategy default
 ```
 
-Replace `"Your prompt here"` with the prompt you want to optimize and `--model mixtral-8x7b-32768` with the desired Groq model.
+Replace `"Your prompt here"` with the prompt you want to optimize. You can also specify the model and strategy using the `--model` and `--strategy` arguments.
 
 ### Streamlit Web App
 
@@ -53,7 +56,7 @@ To use the Streamlit web app, run:
 streamlit run prompt_optimizer/streamlit_app.py
 ```
 
-Then, open the provided URL in your browser.
+Then, open the provided URL in your browser. The web app allows you to input your prompt, select the model, temperature, max tokens, and optimization strategy.
 
 ## Optimization Strategies
 
