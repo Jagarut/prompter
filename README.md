@@ -1,17 +1,16 @@
 # Groq Prompt Optimizer
 
-This Python utility uses the Groq LLM service to optimize user prompts for better performance with large language models. It offers both a command-line interface (CLI) and a Streamlit web application for ease of use.
+This Python utility uses the Groq LLM provider service to instantly refactor and optimize user prompts. It is designed to improve the effectiveness of prompts when working with large language models.
 
 ## Features
 
--   **Prompt Optimization:** Rephrases and optimizes user prompts using Groq's LLM services.
--   **Prompt Optimization:** Rephrases and optimizes user prompts using Groq's LLM services.
--   **Configurable:** Uses environment variables or a `.env` file for configuration.
--   **Modular Design:** Can be used as a module in other Python scripts or run from the command line.
--   **Groq Models:** Supports various Groq models and customizable parameters.
--   **Streamlit App:** Includes a Streamlit web app for easy demonstration and testing.
--   **API Key Input:** Streamlit app supports API key input for use in hosted environments.
--   **Optimization Strategies:** Supports different optimization strategies like concise, detailed, and default.
+- **Prompt Optimization:** Rephrases and optimizes user prompts using Groq's LLM services.
+- **Configurable:** Uses environment variables or a `.env` file for configuration.
+- **Modular Design:** Can be used as a module in other Python scripts or run from the command line.
+- **Groq Models:** Supports various Groq models and customizable parameters.
+- **Streamlit App:** Includes a Streamlit web app for easy demonstration and testing.
+- **API Key Input:** Streamlit app supports API key input for use in hosted environments.
+- **Optimization Strategies:** Supports different optimization strategies like concise, detailed, and default.
 
 ## Core Components
 
@@ -34,8 +33,6 @@ This Python utility uses the Groq LLM service to optimize user prompts for bette
     ```
     Replace `your_groq_api_key` with your actual Groq API key.
 
-    You can also set the `GROQ_DEFAULT_MODEL`, `GROQ_DEFAULT_TEMPERATURE`, and `GROQ_DEFAULT_MAX_TOKENS` environment variables in the `.env` file to customize the default behavior of the application.
-
 ## Usage
 
 ### Command-Line Interface
@@ -43,10 +40,10 @@ This Python utility uses the Groq LLM service to optimize user prompts for bette
 To use the command-line interface, run:
 
 ```bash
-python prompt_optimizer/cli.py "Your prompt here" --model llama3-8b-8192 --strategy default
+python prompt_optimizer/cli.py "Your prompt here" --model llama3-8b-8192
 ```
 
-Replace `"Your prompt here"` with the prompt you want to optimize. You can also specify the model and strategy using the `--model` and `--strategy` arguments.
+Replace `"Your prompt here"` with the prompt you want to optimize and `--model llama3-8b-8192` with the desired Groq model.
 
 ### Streamlit Web App
 
@@ -56,15 +53,15 @@ To use the Streamlit web app, run:
 streamlit run prompt_optimizer/streamlit_app.py
 ```
 
-Then, open the provided URL in your browser. The web app allows you to input your prompt, select the model, temperature, max tokens, and optimization strategy.
+Then, open the provided URL in your browser.
 
 ## Optimization Strategies
 
 The `prompt_optimizer.py` supports different optimization strategies:
 
--   **default:** Rephrases and optimizes the prompt to be more effective for LLMs.
--   **concise:** Rephrases the prompt to be more concise and to the point.
--   **detailed:** Rephrases the prompt to be more detailed and explicit.
+- **default:** Rephrases and optimizes the prompt to be more effective for LLMs.
+- **concise:** Rephrases the prompt to be more concise and to the point.
+- **detailed:** Rephrases the prompt to be more detailed and explicit.
 
 You can select the strategy in the `streamlit_app.py` or by modifying the `PromptOptimizer` class in `prompt_optimizer.py`.
 
@@ -88,3 +85,9 @@ Feel free to contribute to this project by submitting pull requests.
 ## License
 
 This project is licensed under the MIT License.
+
+## Acknowledgments
+
+- Thanks to Groq for providing the LLM services used in this utility.
+
+- Created by ChusDeBoss.
